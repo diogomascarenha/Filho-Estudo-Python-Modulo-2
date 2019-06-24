@@ -47,6 +47,6 @@ elif regolog == "L":
             Usri = str(input("Digite seu usuario: ")).strip().upper()
             Passi = str(input("Digite sua senha: "))
     else:
-        print("Logado com sucessor senhor(a) {}".format(Usri))
+        print("Logado com sucesso senhor(a) {}".format(Usri))
 elif regolog != "R" or "L":
     print("Esta opção não é valida")
