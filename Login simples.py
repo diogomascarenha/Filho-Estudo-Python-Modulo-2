@@ -1,52 +1,42 @@
-Usr = "ADMIN"
-Pass = "Admin"
-Reg = ""
-Log = ""
-Log2 = ""
-Usri = ""
-Passi = ""
+adminUsuario = "ADMIN"
+adminSenha = "Admin"
+
+usuario = ""
+senha = ""
+
 print("-=-" *10)
 print("Bem Vindo(a)")
 print("-=-" *10)
-regolog = str(input("Deseja logar ou se cadastrar? -[L/R]- ")).strip().upper()[0]
-if regolog == "R":
-    while Reg != "R":
-        Reg = str(input("Você deseja cadastrar? -[S/N]- ")).strip().upper()[0]
-        if Reg == "S":
-            print("Você selecionou se cadastrar")
-            Usr = str(input("Digite seu usuario: ")).strip().upper()
-            Pass = str(input("Agora, digite sua senha: "))
-            Reg = "R"
-            print("Registrado(a) com sucesso")
-        elif Reg == "N":
-            print("Você selecionou não se cadastrar")
-            Reg = "R"
-        elif Reg != "S" or "N":
-            print("Você selecionou uma opção invalida, por favor tente novamente!")
-            Reg = str(input("Você deseja cadastrar? -[S/N]- ")).strip().upper()[0]
-if Reg == "R":
-    Log2 = str(input("Agora resgistrado(a) deseja logar? -[S/N]-")).strip().upper()[0]
-    if Log2 == "S":
-        Usri = str(input("Digite seu usuario: ")).strip().upper()
-        Passi = str(input("Digite sua senha: "))
-        if Usri != Usr or Passi != Pass:
-            while Usri != Usr or Passi != Pass:
-                print("Usuário ou senha invalidos, Tente novamente!")
-                Usri = str(input("Digite seu usuario: ")).strip().upper()
-                Passi = str(input("Digite sua senha: "))
-        else:
-            print("Logado com sucessor senhor(a) {}".format(Usri))
-    else:
-        print("Muito obrigado pela preferencia, volte sempre")
-elif regolog == "L":
-    Usri = str(input("Digite seu usuario: ")).strip().upper()
-    Passi = str(input("Digite sua senha: "))
-    if Usri != Usr or Passi != Pass:
-        while Usri != Usr or Passi != Pass:
-            print("Usuário ou senha invalidos, Tente novamente!")
-            Usri = str(input("Digite seu usuario: ")).strip().upper()
-            Passi = str(input("Digite sua senha: "))
-    else:
-        print("Logado com sucesso senhor(a) {}".format(Usri))
-elif regolog != "R" or "L":
-    print("Esta opção não é valida")
+
+opcaoSelecionada = ""
+while opcaoSelecionada != "S":
+    opcaoSelecionada = str(input("Digite [L] para Logar, [R] para Registrar ou [S] para sair. ")).strip().upper()[0]
+
+    if opcaoSelecionada == "R":
+        print("Você selecionou a opção para se registrar")
+        usuario = str(input("Digite seu usuario: ")).strip().upper()
+        senha = str(input("Agora, digite sua senha: "))
+        print("Registrado(a) com sucesso")
+        continue
+
+    if opcaoSelecionada == "L":
+        print("Você selecionou a opção para se logar")
+        usuarioDigitado = str(input("Digite seu usuario: ")).strip().upper()
+        senhaDigitada = str(input("Digite sua senha: "))
+
+        if usuarioDigitado == adminUsuario and senhaDigitada == adminSenha:
+            print("Logado como administrador com sucesso senhor(a) {}".format(usuarioDigitado))
+            continue
+
+        if usuario == usuarioDigitado and senha == senhaDigitada:
+            print("Logado com sucesso senhor(a) {}".format(usuarioDigitado))
+            continue
+
+        print("Usuário e/ou senha invalidos, tente novamente!")
+        continue
+
+    if opcaoSelecionada == "S":
+        print("Você selecionou a opção para sair")
+        continue
+
+    print("Esta opção não é valida [{}], tente novamente!".format(opcaoSelecionada))
